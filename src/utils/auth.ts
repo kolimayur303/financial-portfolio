@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken'; // Importing the jsonwebtoken library
 
 /**
  * Generates a JWT token for the given user ID.
@@ -7,11 +7,11 @@ import jwt from 'jsonwebtoken';
  * @returns The generated JWT token.
  */
 const generateToken = (userId: string): string => {
-  const payload = { userId };
-  const secret = process.env.JWT_SECRET!;
-  const options = { expiresIn: '1h' }; // Token expiration time
+  const payload = { userId }; // Creating the payload with the user ID
+  const secret = process.env.JWT_SECRET!; // Retrieving the JWT secret from environment variables
+  const options = { expiresIn: '1h' }; // Setting the token expiration time to 1 hour
 
-  return jwt.sign(payload, secret, options);
+  return jwt.sign(payload, secret, options); // Generating and returning the JWT token
 };
 
-export default generateToken;
+export default generateToken; // Exporting the generateToken function as the default export
